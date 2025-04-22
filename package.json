@@ -1,53 +1,18 @@
 {
-  "name": "zustand-location",
-  "description": "👻💊",
+  "name": "zustand-location-project",
+  "description": "zustand store with location ",
   "version": "0.1.0",
   "type": "module",
   "author": "Yunho Seo",
-  "contributors": [],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yunho1017/zustand-location.git"
-  },
-  "source": "./src/index.ts",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "require": {
-        "types": "./dist/cjs/index.d.ts",
-        "default": "./dist/cjs/index.js"
-      },
-      "default": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
-    }
-  },
-  "sideEffects": false,
-  "files": [
-    "dist"
-  ],
   "packageManager": "pnpm@9.4.0",
-  "scripts": {
-    "compile": "rm -rf dist && pnpm run '/^compile:.*/'",
-    "compile:esm": "tsc -p tsconfig.esm.json",
-    "compile:cjs": "tsc -p tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
-    "test": "pnpm run '/^test:.*/'",
-    "test:format": "prettier -c .",
-    "test:lint": "eslint .",
-    "test:types": "tsc -p . --noEmit",
-    "test:spec": "vitest run"
-  },
-  "keywords": [
-    "react",
-    "zustand",
-    "location"
-  ],
-  "license": "MIT",
   "prettier": {
     "singleQuote": true
+  },
+  "scripts": {
+    "core:compile": "pnpm --filter zustand-location compile",
+    "core:test": "pnpm --filter zustand-location test",
+    "apps:01_minimal:dev": "pnpm --filter 01_minimal dev",
+    "apps:02_typescript:dev": "pnpm --filter 02_typescript dev"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
@@ -62,8 +27,5 @@
     "prettier": "^3.4.2",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.21.0"
-  },
-  "peerDependencies": {
-    "zustand": ">=4.0.0"
   }
 }
